@@ -14,14 +14,44 @@ Après avoir reçu une requête GET, la fonction envoie une notification FCM **u
 
 ## Setup
 
+### Configuration de Firebase
+
+Il faut créer un firestore avec une collection contenant un seul document (nommé 0) et contenant un unique champ `totalItems`.
+
+Si le projet a changé de nom/chemin, il faut refaire l'initialisation de Firebase :
+
+Installez Node 8+ : https://nodejs.org/.
+
+```sh
+npm i -g firebase-tools
+```
+
+```sh
+firebase login
+```
+
+```sh
+firebase init  # Ne prenez que Cloud Functions.
+```
+
+### Configuration de Google Cloud Schedule
+
+![image-20200407164332483](README.assets/image-20200407164332483.png)
+
+Rien de très compliqué. Assurez vous que l'URL est bonne. (Il faut d'abord déployer la Cloud Function avant.)
+
 ### Configuration de l'environnement
 
-Installez Node 8+ : https://nodejs.org/dist/latest-v8.x/.
+Installez Node 8+ : https://nodejs.org/.
 
 Installez Firebase Tools :
 
 ```sh
 npm i -g firebase-tools
+```
+
+```sh
+firebase login
 ```
 
 Installez les dépendances :
