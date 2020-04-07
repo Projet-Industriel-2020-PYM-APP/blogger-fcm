@@ -2,7 +2,7 @@
 
 ## Principe
 
-![Plan Firebase](README.assets/Plan Firebase.png)
+![Plan Firebase](<README.assets/Plan Firebase.png>)
 
 [**Google Cloud Schedule**](https://cloud.google.com/scheduler) envoie des requêtes HTTP GET à notre Cloud Function de manière périodique suivant la configuration utilisant [CRON](https://en.wikipedia.org/wiki/Cron).
 
@@ -75,7 +75,7 @@ export abstract class Blogger {
 }
 ```
 
-Blogger récupère le blog en faisant une requête vers  `https://www.googleapis.com/blogger/v3/blogs/${this.blogID}?key=${this.key}`.
+Blogger récupère le blog en faisant une requête vers `https://www.googleapis.com/blogger/v3/blogs/${this.blogID}?key=${this.key}`.
 
 Blogger récupère le dernier post en faisant une requête vers `https://www.googleapis.com/blogger/v3/blogs/${this.blogID}/posts?key=${this.key}`
 
@@ -96,7 +96,7 @@ Firestore récupère le nombre de post sauvegardé issue de la dernière requêt
 
 Firestore doit donc sauvegarder le nombre de post afin de voir s'il y a un nouveau post.
 
-`collection` est  configuré selon la partie [Configuration de l'environnement](#configuration-de-l'environnement).
+`collection` est configuré selon la partie [Configuration de l'environnement](#configuration-de-l'environnement).
 
 `PROJECT_ID` est le projet Google.
 
@@ -110,26 +110,26 @@ export abstract class FcmService {
 
 Celui-ci envoi une notification à un topic.
 
-`topic` est  configuré selon la partie [Configuration de l'environnement](#configuration-de-l'environnement).
+`topic` est configuré selon la partie [Configuration de l'environnement](#configuration-de-l'environnement).
 
-Payload : 
+Payload :
 
 ```json
 {
-  notification: {
-    title: 'Nouvelle article !',
-    body: post.title ?? '',
+  "notification": {
+    "title": "Nouvelle article !",
+    "body": post.title ?? ""
   },
-  data: {
-    kind: post.kind ?? '',
-    id: post.id ?? '',
-    published: post.published ?? '',
-    updated: post.updated ?? '',
-    url: post.url ?? '',
-    selfLink: post.selfLink ?? '',
-    title: post.title ?? '',
-    content: post.content ?? '',
-  },
+  "data": {
+    "kind": post.kind ?? "",
+    "id": post.id ?? "",
+    "published": post.published ?? "",
+    "updated": post.updated ?? "",
+    "url": post.url ?? "",
+    "selfLink": post.selfLink ?? "",
+    "title": post.title ?? "",
+    "content": post.content ?? ""
+  }
 }
 ```
 
@@ -178,4 +178,3 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
-
